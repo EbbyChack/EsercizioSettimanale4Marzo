@@ -6,13 +6,17 @@ using System.Web.Mvc;
 
 namespace EsercizioSettimanale4Marzo.Controllers
 {
-    public class HomeController : Controller
+    public class ClientiController : Controller
     {
-        public ActionResult Index()
+        public ActionResult InserisciCliente()
         {
             return View();
         }
 
-      
+        [HttpPost]
+        public ActionResult InserisciClientee()
+        {
+            return View();
+        }
     }
 }

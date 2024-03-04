@@ -10,6 +10,7 @@ namespace EsercizioSettimanale4Marzo.Models
     public class Spedizioni
     {
         [HiddenInput(DisplayValue = false)]
+        [Display(Name = "")]
         public int IdSpedizione { get; set; }
 
         [Display(Name = "Id Cliente")]
@@ -42,8 +43,5 @@ namespace EsercizioSettimanale4Marzo.Models
         [Display(Name = "Consegna Prevista")]
         [Required(ErrorMessage = "Consegna Prevista è obbligatorio.")]
         public DateTime ConsegnaPrevista { get; set; }
-
-
-
     }
 }

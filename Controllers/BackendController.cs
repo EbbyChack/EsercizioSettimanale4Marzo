@@ -10,8 +10,15 @@ namespace EsercizioSettimanale4Marzo.Controllers
     {
         // GET: Backend
         public ActionResult Index()
-        {
-            return View();
+        { if(User.Identity.IsAuthenticated)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            
         }
     }
 }

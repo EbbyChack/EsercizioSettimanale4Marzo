@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace EsercizioSettimanale4Marzo.Controllers
 {
@@ -36,18 +37,27 @@ namespace EsercizioSettimanale4Marzo.Controllers
                     {
                         if (reader.HasRows)
                         {
-                            return View("Index");
+                            FormsAuthentication.SetAuthCookie(addetti.Username, false);
+                            return RedirectToAction("Index", "Backend");
                         }
                         else
                         {
-                            return View("Error");
+                            ViewBag.AuthError = "Autenticazione non riuscita";
+                            return View();
                         }
                     }
                 }
+
+
             }
 
-            return View();
         }
 
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            //ti riporta alla pagina dove ti trovavi
+            return Redirect(Request.UrlReferrer.ToString());
+        }
     }
 }

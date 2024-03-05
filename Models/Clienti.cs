@@ -10,9 +10,11 @@ namespace EsercizioSettimanale4Marzo.Models
     {
        
 
-        [Display(Name = "Codice Fiscale o Partita IVA")]
-        [Required(ErrorMessage = "Codice Fiscale o Partita IVA è obbligatorio.")]
-        public string CFoPIVA { get; set; }
+        [Display(Name = "Codice Fiscale")] 
+        public string CF { get; set; }
+
+        [Display(Name = "Partita Iva")]
+        public string PIVA { get; set; }
 
         [Required(ErrorMessage = "Nome Cliente o Azienda è obbligatorio.")]
         [Display(Name = "Nome Cliente o Azienda")]

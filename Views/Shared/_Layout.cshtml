@@ -18,13 +18,18 @@
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Inserisci Cliente", "InserisciCliente", "Clienti", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Inserisci Spedizione", "InserisciSpedizione", "Spedizioni", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("AggiornamentoSpedizione", "AggiornamentoSpedizioni", "AggiornamentoSpedizioni", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Backend", "Index", "Backend", new { area = "" }, new { @class = "nav-link" })</li>
+                </ul>
+            </div>
+            <div>
+                <ul class="navbar-nav">
+                    <li>@Html.ActionLink("Login", "Index", "Login", new { area = "" }, new { @class = "nav-link btn btn-secondary py-1" })</li>
 
                 </ul>
             </div>
         </div>
+        
+        
     </nav>
     <div class="container body-content">
         @RenderBody()

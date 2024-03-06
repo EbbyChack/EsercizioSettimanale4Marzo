@@ -23,33 +23,42 @@ namespace EsercizioSettimanale4Marzo.Controllers
         {
             string connectionString = ConfigurationManager.ConnectionStrings["MyDb"].ConnectionString;
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try 
             {
-                conn.Open();
-                string query = "INSERT INTO AggiornamentoSpedizione (IdSpedizione, Stato, LuogoAttuale, Descrizione, DataOraAggiornamento) VALUES (@IdSpedizione, @Stato, @LuogoAttuale, @Descrizione, @DataOraAggiornamento)";
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    cmd.Parameters.AddWithValue("@IdSpedizione", aggiornamento.IdSpedizione);
-                    cmd.Parameters.AddWithValue("@Stato", aggiornamento.Stato);
-                    cmd.Parameters.AddWithValue("@LuogoAttuale", aggiornamento.LuogoAttuale);
-                    if (aggiornamento.Descrizione == null)
+                    conn.Open();
+                    string query = "INSERT INTO AggiornamentoSpedizione (IdSpedizione, Stato, LuogoAttuale, Descrizione, DataOraAggiornamento) VALUES (@IdSpedizione, @Stato, @LuogoAttuale, @Descrizione, @DataOraAggiornamento)";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@Descrizione", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@IdSpedizione", aggiornamento.IdSpedizione);
+                        cmd.Parameters.AddWithValue("@Stato", aggiornamento.Stato);
+                        cmd.Parameters.AddWithValue("@LuogoAttuale", aggiornamento.LuogoAttuale);
+                        if (aggiornamento.Descrizione == null)
+                        {
+                            cmd.Parameters.AddWithValue("@Descrizione", DBNull.Value);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@Descrizione", aggiornamento.Descrizione);
+                        }
+                        ;
+                        cmd.Parameters.AddWithValue("@DataOraAggiornamento", DateTime.Now);
+
+
+
+                        cmd.ExecuteNonQuery();
                     }
-                    else
-                    {
-                        cmd.Parameters.AddWithValue("@Descrizione", aggiornamento.Descrizione);
-                    }
-                    ;
-                    cmd.Parameters.AddWithValue("@DataOraAggiornamento", DateTime.Now);
-
-
-
-                    cmd.ExecuteNonQuery();
+                    return View("AggiornamentoSpedizioni");
                 }
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex);
                 return View("AggiornamentoSpedizioni");
             }
+           
         }
     }
 }

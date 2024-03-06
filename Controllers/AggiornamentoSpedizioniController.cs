@@ -1,5 +1,6 @@
 ﻿using EsercizioSettimanale4Marzo.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -43,7 +44,7 @@ namespace EsercizioSettimanale4Marzo.Controllers
                     ;
                     cmd.Parameters.AddWithValue("@DataOraAggiornamento", DateTime.Now);
 
-                    
+
 
                     cmd.ExecuteNonQuery();
                 }

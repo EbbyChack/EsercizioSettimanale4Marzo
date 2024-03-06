@@ -1,0 +1,61 @@
+﻿@model IEnumerable<EsercizioSettimanale4Marzo.Models.Tracking>
+
+
+
+<h2>Tracking View</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().NomeCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().IdSpedizione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Stato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().LuogoAttuale)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Descrizione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().DataOraAggiornamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().ConsegnaPrevista)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeCliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdSpedizione)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LuogoAttuale)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descrizione)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataOraAggiornamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConsegnaPrevista)
+        </td>
+      
+    </tr>
+}
+
+</table>

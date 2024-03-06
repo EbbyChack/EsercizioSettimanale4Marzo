@@ -10,10 +10,12 @@ namespace EsercizioSettimanale4Marzo.Models
     {
        
 
-        [Display(Name = "Codice Fiscale")] 
+        [Display(Name = "Codice Fiscale")]
+        [StringLength(16, ErrorMessage = "Codice Fiscale non valido", MinimumLength = 16)]
         public string CF { get; set; }
 
         [Display(Name = "Partita Iva")]
+        [StringLength(11, ErrorMessage = "Partita IVA non valida", MinimumLength = 11)]
         public string PIVA { get; set; }
 
         [Required(ErrorMessage = "Nome Cliente o Azienda è obbligatorio.")]

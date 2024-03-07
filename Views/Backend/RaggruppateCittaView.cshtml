@@ -2,16 +2,33 @@
 
 <h2>Spedizioni raggruppate per città</h2>
 
-<table class="table">
+
+@section Scripts {
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+             url: '@Url.Action("RaggruppateCitta", "Backend")',
+             type: 'GET',
+             dataType: 'json',
+            success: function (data) {
+                $.each(data, function (index) {
+                    var row = $('<tr><td>' + data[index].Citta + '</td><td>' + data[index].TotaleSpedizioni + '</td></tr>');
+                    $('#tabella').append(row);
+                    ;
+                } )
+             },
+             error: function (error) {
+                  console.log(error);
+             }
+           });
+    });
+    </script>
+}
+
+<table class="table" id="tabella">
     <tr>
         <th>Città</th>
         <th>Totale spedizioni</th>
     </tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>@item.Citta</td>
-            <td>@item.TotaleSpedizioni</td>
-        </tr>
-    }
+    
 </table>

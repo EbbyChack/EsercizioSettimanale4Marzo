@@ -2,7 +2,29 @@
 
 <h2>Spedizioni in consegna oggi</h2>
 
-<table class="table">
+@section Scripts {
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+             url: '@Url.Action("SpedizioniInconsegnaOggi", "Backend")',
+             type: 'GET',
+             dataType: 'json',
+            success: function (data) {
+                $.each(data, function (index) {
+                    var row = $('<tr><td>' + data[index].IdSpedizione + '</td><td>' + data[index].IdCliente + '</td><td>' + data[index].DataSpedizione + '</td><td>' + data[index].Peso + '</td><td>' + data[index].Citta + '</td><td>' + data[index].Indirizzo + '</td><td>' + data[index].NomeDestinatario + '</td><td>' + data[index].CostoSpedizione + '</td><td>' + data[index].ConsegnaPrevista + '</td></tr>');
+                    $('#tabella').append(row);
+                    ;
+                } )
+             },
+             error: function (error) {
+                  console.log(error);
+             }
+           });
+    });
+    </script>
+}
+
+<table class="table" id="tabella">
     <tr>
         <th>Id Spedizione</th>
         <th>Id Cliente</th>
@@ -14,18 +36,5 @@
         <th>Costo Spedizione</th>
         <th>Consegna Prevista</th>
     </tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>@item.IdSpedizione</td>
-            <td>@item.IdCliente</td>
-            <td>@item.DataSpedizione.ToString("yyyy-MM-dd")</td>
-            <td>@item.Peso</td>
-            <td>@item.Citta</td>
-            <td>@item.Indirizzo</td>
-            <td>@item.NomeDestinatario</td>
-            <td>@item.CostoSpedizione</td>
-            <td>@item.ConsegnaPrevista.ToString("yyyy-MM-dd")</td>
-        </tr>
-    }
+   
 </table>

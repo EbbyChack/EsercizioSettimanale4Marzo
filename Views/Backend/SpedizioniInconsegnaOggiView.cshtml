@@ -4,6 +4,11 @@
 
 @section Scripts {
     <script type="text/javascript">
+     function formatDate(jsonDate) {
+         var date = new Date(parseInt(jsonDate.substr(6)));
+         return date.toLocaleDateString();
+     }
+
     $(document).ready(function () {
         $.ajax({
              url: '@Url.Action("SpedizioniInconsegnaOggi", "Backend")',
@@ -11,7 +16,7 @@
              dataType: 'json',
             success: function (data) {
                 $.each(data, function (index) {
-                    var row = $('<tr><td>' + data[index].IdSpedizione + '</td><td>' + data[index].IdCliente + '</td><td>' + data[index].DataSpedizione + '</td><td>' + data[index].Peso + '</td><td>' + data[index].Citta + '</td><td>' + data[index].Indirizzo + '</td><td>' + data[index].NomeDestinatario + '</td><td>' + data[index].CostoSpedizione + '</td><td>' + data[index].ConsegnaPrevista + '</td></tr>');
+                    var row = $('<tr><td>' + data[index].IdSpedizione + '</td><td>' + data[index].IdCliente + '</td><td>' + formatDate(data[index].DataSpedizione) + '</td><td>' + data[index].Peso + '</td><td>' + data[index].Citta + '</td><td>' + data[index].Indirizzo + '</td><td>' + data[index].NomeDestinatario + '</td><td>' + data[index].CostoSpedizione + '</td><td>' + formatDate(data[index].ConsegnaPrevista) + '</td></tr>');
                     $('#tabella').append(row);
                     ;
                 } )

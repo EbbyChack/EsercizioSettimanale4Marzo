@@ -4,28 +4,28 @@
 
 <table class="table">
     <tr>
-        <th>IdSpedizione</th>
-        <th>IdCliente</th>
-        <th>DataSpedizione</th>
+        <th>Id Spedizione</th>
+        <th>Id Cliente</th>
+        <th>Data Spedizione</th>
         <th>Peso</th>
         <th>Citta</th>
         <th>Indirizzo</th>
-        <th>NomeDestinatario</th>
-        <th>CostoSpedizione</th>
-        <th>ConsegnaPrevista</th>
+        <th>Nome Destinatario</th>
+        <th>Costo Spedizione</th>
+        <th>Consegna Prevista</th>
     </tr>
     @foreach (var item in Model)
     {
         <tr>
             <td>@item.IdSpedizione</td>
             <td>@item.IdCliente</td>
-            <td>@item.DataSpedizione</td>
+            <td>@item.DataSpedizione.ToString("yyyy-MM-dd")</td>
             <td>@item.Peso</td>
             <td>@item.Citta</td>
             <td>@item.Indirizzo</td>
             <td>@item.NomeDestinatario</td>
             <td>@item.CostoSpedizione</td>
-            <td>@item.ConsegnaPrevista</td>
+            <td>@item.ConsegnaPrevista.ToString("yyyy-MM-dd")</td>
         </tr>
     }
 </table>

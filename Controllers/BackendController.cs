@@ -40,11 +40,13 @@ namespace EsercizioSettimanale4Marzo.Controllers
                                     Spedizione.IdSpedizione, IdCliente, DataSpedizione, Peso,	Citta, Indirizzo, NomeDestinatario, CostoSpedizione, ConsegnaPrevista
                                     FROM SPEDIZIONE
                                     INNER JOIN AggiornamentoSpedizione ON Spedizione.IdSpedizione = AggiornamentoSpedizione.IdSpedizione
-                                    WHERE Stato = 'In Consegna' AND ConsegnaPrevista = '2024-03-06'";
+                                    WHERE Stato = 'In Consegna' AND ConsegnaPrevista = @date";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@date", DateTime.Now.Date);
+                        string currentDate = DateTime.Now.Date.ToString("yyyy-MM-dd");
+                        cmd.Parameters.AddWithValue("@date", currentDate);
+                        System.Diagnostics.Debug.WriteLine(currentDate);
                         SqlDataReader reader = cmd.ExecuteReader();
                         while (reader.Read())
                         {

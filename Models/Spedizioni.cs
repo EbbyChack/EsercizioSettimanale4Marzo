@@ -9,7 +9,8 @@ namespace EsercizioSettimanale4Marzo.Models
 {
     public class Spedizioni
     {
-        
+        [HiddenInput(DisplayValue = false)]
+        public int IdSpedizione { get; set; }
 
         [Display(Name = "Id Cliente")]
         [Required(ErrorMessage = "Id Cliente è obbligatorio.")]

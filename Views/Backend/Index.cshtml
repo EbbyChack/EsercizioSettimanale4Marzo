@@ -10,7 +10,7 @@
                     </div>
                 </div>
             </a>
-            
+
         </div>
         <div class="col-12 col-lg-4">
             <a href="@Url.Action("InserisciSpedizione", "Spedizioni")" class="text-decoration-none text-black">
@@ -22,7 +22,7 @@
                     </div>
                 </div>
             </a>
-            
+
         </div>
         <div class="col-12 col-lg-4">
             <a href="@Url.Action("AggiornamentoSpedizioni", "AggiornamentoSpedizioni")" class="text-decoration-none text-black">
@@ -34,7 +34,44 @@
                     </div>
                 </div>
             </a>
-            
+
+        </div>
+        @*---------------------*@
+        <div class="col-12 col-lg-4">
+            <a href="@Url.Action("SpedizioniInconsegnaOggiView", "Backend")" class="text-decoration-none text-black">
+                <div class="card  border-0 bg-success bg-opacity-10" style="height:10em">
+                    <div class="card-body  d-flex flex-column  justify-content-center">
+                        <h5 class="card-title">Spedizioni in consegna oggi</h5>
+                        <p class="card-text">Individua tutte le spedizioni in consegna nella data odierna</p>
+
+                    </div>
+                </div>
+            </a>
+
+        </div>
+        <div class="col-12 col-lg-4">
+            <a href="@Url.Action("SpedizioniInAttesaconsegnaView", "Backend")" class="text-decoration-none text-black">
+                <div class="card  border-0 bg-success bg-opacity-10" style="height:10em">
+                    <div class="card-body  d-flex flex-column  justify-content-center">
+                        <h5 class="card-title">Spedizioni in attesa di consegna</h5>
+                        <p class="card-text">Individua il numero delle spedizioni totali in attesa di consegna</p>
+
+                    </div>
+                </div>
+            </a>
+
+        </div>
+        <div class="col-12 col-lg-4">
+            <a href="@Url.Action("RaggruppateCittaView", "Backend")" class="text-decoration-none text-black">
+                <div class="card  border-0 bg-success bg-opacity-10" style="height:10em">
+                    <div class="card-body  d-flex flex-column  justify-content-center">
+                        <h5 class="card-title">Spedizioni raggruppate per città</h5>
+                        <p class="card-text">Individua il numero totale delle spedizioni memorizzate raggruppate per città destinataria. </p>
+
+                    </div>
+                </div>
+            </a>
+
         </div>
     </div>
 </div>

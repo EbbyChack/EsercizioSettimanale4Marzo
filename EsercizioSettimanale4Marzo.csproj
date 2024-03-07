@@ -134,6 +134,7 @@
     <Compile Include="Models\AggiornamentoSpedizioni.cs" />
     <Compile Include="Models\Clienti.cs" />
     <Compile Include="Models\SearchInfo.cs" />
+    <Compile Include="Models\SpedizioneCitta.cs" />
     <Compile Include="Models\Spedizioni.cs" />
     <Compile Include="Models\Trackingg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -194,6 +195,9 @@
     <Content Include="Views\Backend\Index.cshtml" />
     <Content Include="Views\Tracking\Index.cshtml" />
     <Content Include="Views\Tracking\TrackingView.cshtml" />
+    <Content Include="Views\Backend\SpedizioniInconsegnaOggiView.cshtml" />
+    <Content Include="Views\Backend\SpedizioniInAttesaconsegnaView.cshtml" />
+    <Content Include="Views\Backend\RaggruppateCittaView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

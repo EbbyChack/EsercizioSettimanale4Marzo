@@ -1,0 +1,17 @@
+﻿@model List<EsercizioSettimanale4Marzo.Models.SpedizioneCitta>
+
+<h2>Spedizioni raggruppate per città</h2>
+
+<table class="table">
+    <tr>
+        <th>Città</th>
+        <th>Totale spedizioni</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Citta</td>
+            <td>@item.TotaleSpedizioni</td>
+        </tr>
+    }
+</table>

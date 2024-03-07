@@ -1,0 +1,31 @@
+﻿@model IEnumerable<EsercizioSettimanale4Marzo.Models.Spedizioni>
+
+<h2>Spedizioni in consegna oggi</h2>
+
+<table class="table">
+    <tr>
+        <th>IdSpedizione</th>
+        <th>IdCliente</th>
+        <th>DataSpedizione</th>
+        <th>Peso</th>
+        <th>Citta</th>
+        <th>Indirizzo</th>
+        <th>NomeDestinatario</th>
+        <th>CostoSpedizione</th>
+        <th>ConsegnaPrevista</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.IdSpedizione</td>
+            <td>@item.IdCliente</td>
+            <td>@item.DataSpedizione</td>
+            <td>@item.Peso</td>
+            <td>@item.Citta</td>
+            <td>@item.Indirizzo</td>
+            <td>@item.NomeDestinatario</td>
+            <td>@item.CostoSpedizione</td>
+            <td>@item.ConsegnaPrevista</td>
+        </tr>
+    }
+</table>
